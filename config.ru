@@ -1,6 +1,9 @@
+require "yaml"
 require "geminabox"
 
-Geminabox.data = "/tmp/geminabox"
-Geminabox.rubygems_proxy = true
+config = YAML.load_file(File.expand_path("config/geminabox.yml"))
+
+Geminabox.data = config["data"]
+Geminabox.rubygems_proxy = config["proxy"]
 
 run Geminabox::Server
