@@ -1,0 +1,9 @@
+#!/bin/bash
+
+cp -R /source /opt/
+
+pushd /opt/source
+	dpkg-buildpackage -b -rfakeroot	
+popd
+
+cp /opt/*.deb /build/
