@@ -1,4 +1,4 @@
-FROM locaweb-wheezy
+FROM andrerocker/wheezy
 MAINTAINER Platform Team 0.1
 
 RUN echo "deb http://pacotes.linux.locaweb.com.br/ruby_wheezy/debian ruby2x main" >> /etc/apt/sources.list
