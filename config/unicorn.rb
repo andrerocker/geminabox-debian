@@ -2,15 +2,16 @@ timeout 600
 preload_app true
 
 working_directory File.expand_path("../../", __FILE__)
+geminabox = YAML.load_file(File.expand_path("config/geminabox.yml"))
 
 listen "127.0.0.1:9292", :backlog => 64
-listen File.expand_path("./tmp/sockets/unicorn.sock")
+listen File.expand_path("tmp/sockets/unicorn.sock")
 
 pid "tmp/pids/unicorn.pid"
 stderr_path "log/unicorn.log"
 stdout_path "log/unicorn.log"
 
-worker_processes ENV["RACK_ENV"].eql?("production") ? 6 : 8
+worker_processes geminabox["workers"]
 
 before_fork do |server, worker|
    old_pid = "#{server.config[:pid]}.oldbin"
