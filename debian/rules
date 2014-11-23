@@ -1,9 +1,6 @@
 #!/usr/bin/make -f
 #export DH_VERBOSE=1
 
-override_dh_installinit:
-	dh_installinit --no-start
-
 build: build-stamp
 build-stamp:
 	dh_testdir
@@ -12,25 +9,19 @@ build-stamp:
 clean:
 	dh_clean
 
-build:
-	dh_testdir
-	dh_prep
-	dh_installdirs
-
 install:
+	bundle -v || gem install bundler --no-rdoc --no-ri
+	bundle install --deployment --without=development:test
 
-binary-indep: build install
+binary-indep: install
 	dh_testdir
 	dh_testroot
 	dh_installdirs
 
-	which bundle || gem install bundler --no-rdoc --no-ri
-	bundle install --deployment --without=development:test
-
 	dh_install
 	dh_installman
 	dh_installchangelogs
-	dh_installinit
+	dh_installinit --no-start
 	dh_installlogrotate
 	dh_lintian
 	dh_link
@@ -43,5 +34,3 @@ binary-indep: build install
 	dh_builddeb
 
 binary: binary-indep
-
-
