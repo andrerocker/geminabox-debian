@@ -1,6 +1,6 @@
 bootstrap:
-	docker build -t builder/locainabox locaweb/containers/builder
-	docker build -t runtime/locainabox locaweb/containers/runtime
+	docker build -t builder/geminabox-debian locaweb/containers/builder
+	docker build -t runtime/geminabox-debian locaweb/containers/runtime
 
 builder:
 	docker run \
@@ -8,10 +8,10 @@ builder:
                 -v $(CURDIR)/locaweb/scripts:/scripts \
                 -v $(CURDIR)/locaweb/tmp/build:/build \
                 -v $(CURDIR)/locaweb/tmp/cache:/opt/source/vendor/bundle \
-                -i -t builder/locainabox /scripts/build
+                -i -t builder/geminabox-debian /scripts/build
 
 runtime:
 	docker run \
                 -v $(CURDIR)/locaweb/scripts:/scripts \
                 -v $(CURDIR)/locaweb/tmp/build:/build \
-                -i -t builder/locainabox /bin/bash
+                -i -t builder/geminabox-debian /bin/bash

@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-APP_NAME="locainabox"
+APP_NAME="geminabox"
 APP_PATH="/var/www/$APP_NAME"
 
 case "$1" in

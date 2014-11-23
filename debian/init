@@ -12,7 +12,7 @@
 
 set -e
 
-package_name=locainabox
+package_name=geminabox
 app_root="/var/www/${package_name}"
 
 cd $app_root

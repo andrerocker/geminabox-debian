@@ -1,1 +1,1 @@
-/var/www/locainabox/config/nginx.conf /etc/nginx/sites-enabled/locainabox.conf
+/var/www/geminabox/config/nginx.conf /etc/nginx/sites-enabled/geminabox

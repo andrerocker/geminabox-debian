@@ -1,12 +1,12 @@
-Source: locainabox
+Source: geminabox
 Section: ruby
 Priority: optional
-Maintainer: Andre Souza <saas-dev@locaweb.com.br>
+Maintainer: Andre Souza <andre.souza@locaweb.com.br>
 Build-Depends: debhelper (>= 7.0.50~)
 Standards-Version: 3.9.1
-Homepage: https://code.locaweb.com.br/locawebcommon/locainabox
+Homepage: https://code.locaweb.com.br/locawebcommon/geminabox-debian
 
-Package: locainabox
+Package: geminabox
 Architecture: any
 Depends: nginx, ruby, bundler
-Description: Internal Locaweb Gem in a Box Package
+Description: Gem in a Box
