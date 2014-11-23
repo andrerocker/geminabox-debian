@@ -6,4 +6,6 @@ pushd /opt/source
 	dpkg-buildpackage -b -rfakeroot	
 popd
 
-cp /opt/*.deb /build/
+pushd /opt
+	cp *.deb *.changes /build/
+popd
